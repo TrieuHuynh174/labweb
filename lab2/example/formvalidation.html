@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form valisation</title>
+  <style>
+    body{
+        text-align: center;
+        padding: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #error {
+        color: red;
+        display : none;
+    }
+  </style>
+</head>
+<body>
+
+    <h1>Form Validation</h1>
+  <form id="myForm">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="error">Please fill in all fields!</p>
+  <script>
+    const form = document.getElementById('myForm');
+    const error = document.getElementById('error');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      if (!name || !email) {
+        error.style.display = 'block';
+      } else {
+        error.style.display = 'none';
+        alert('Form submitted successfully!');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator{
+            width: 300px;
+            margin: 0px auto;
+            text-align: center;
+        }
+        input {
+            width: 50px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<div class="calculator">
+  <h1>Calculator</h1>
+  <input type="number" id="num1" placeholder="0">
+  <input type="number" id="num2" placeholder="0">
+  <br>
+  <button id="add">+</button>
+  <button id="subtract">-</button>
+  <button id="multiply">*</button>
+  <button id="divide">/</button>
+  <h3>Result: <span id="result">0</span></h3>
+</div>
+<script>
+    function calculate(operation) {
+        const num1 = parseFloat(document.getElementById('num1').value) || 0;
+        const num2 = parseFloat(document.getElementById('num2').value) || 0;
+        let result = 0;
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num2 !== 0 ? num1 / num2 : 'Error';
+                break;
+        }
+        document.getElementById('result').textContent = result;
+    }
+
+    document.getElementById('add').addEventListener('click', function() {
+        calculate('+');
+    });
+    document.getElementById('subtract').addEventListener('click', function() {
+        calculate('-');
+    });
+    document.getElementById('multiply').addEventListener('click', function() {
+        calculate('*');
+    });
+    document.getElementById('divide').addEventListener('click', function() {
+        calculate('/');
+    });
+</script>
+</html>
