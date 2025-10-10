@@ -1,0 +1,111 @@
+/* --- Cài đặt cơ bản cho trang --- */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #1a202c; /* Một màu nền tối để dễ nhìn */
+    overflow: hidden; /* Ẩn thanh cuộn khi tam giác bay ra ngoài màn hình */
+}
+
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Tạo hình tam giác --- */
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* Kỹ thuật dùng border để tạo tam giác */
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid rgba(255, 255, 255, 0.8);
+    
+    /* Vị trí bắt đầu: ẩn ở phía trên màn hình */
+    top: -30px;
+
+    /* Gọi animation */
+    animation: fall-and-spin 10s linear infinite;
+}
+
+/* --- Định nghĩa animation --- */
+@keyframes fall-and-spin {
+    from {
+        /* Bắt đầu: ở vị trí ban đầu, chưa xoay */
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        /* Kết thúc: bay xuống hết màn hình và xoay 2 vòng */
+        transform: translateY(105vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* --- Tạo sự ngẫu nhiên cho các tam giác --- */
+.triangle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.triangle:nth-child(2) {
+    left: 20%;
+    animation-delay: -2s; /* Delay âm để animation bắt đầu ngay lập tức */
+    animation-duration: 8s;
+    transform: scale(0.6); /* Cho nhỏ hơn một chút */
+}
+
+.triangle:nth-child(3) {
+    left: 30%;
+    animation-delay: -4s;
+    animation-duration: 15s;
+}
+
+.triangle:nth-child(4) {
+    left: 40%;
+    animation-delay: -7s;
+    animation-duration: 10s;
+    transform: scale(0.8);
+}
+
+.triangle:nth-child(5) {
+    left: 50%;
+    animation-delay: -1s;
+    animation-duration: 9s;
+}
+
+.triangle:nth-child(6) {
+    left: 60%;
+    animation-delay: -5s;
+    animation-duration: 13s;
+    transform: scale(0.5);
+}
+
+.triangle:nth-child(7) {
+    left: 70%;
+    animation-delay: -8s;
+    animation-duration: 7s;
+}
+
+.triangle:nth-child(8) {
+    left: 80%;
+    animation-delay: -3s;
+    animation-duration: 11s;
+    transform: scale(0.9);
+}
+
+.triangle:nth-child(9) {
+    left: 90%;
+    animation-delay: -6s;
+    animation-duration: 14s;
+}
+
+.triangle:nth-child(10) {
+    left: 5%;
+    animation-delay: -9s;
+    animation-duration: 10s;
+    transform: scale(0.7);
+}

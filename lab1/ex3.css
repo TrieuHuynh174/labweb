@@ -1,0 +1,63 @@
+/* --- Cài đặt chung cho trang --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    margin: 0;
+    /* Loại bỏ hiệu ứng răng cưa trên font chữ */
+    -webkit-font-smoothing: antialiased; 
+}
+
+/* --- Thiết lập không gian 3D --- */
+.rotate-point {
+    width: 250px;
+    height: 250px;
+    /* Perspective tạo ra chiều sâu, cho phép nhìn thấy hiệu ứng 3D */
+    perspective: 1000px;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* QUAN TRỌNG: Bật chế độ 3D cho các phần tử con */
+    transform-style: preserve-3d;
+    
+    /* Gọi animation xoay tròn */
+    animation: spin 10s linear infinite;
+}
+
+/* --- Định dạng và sắp xếp các chữ cái --- */
+.cell {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    /* Căn giữa chữ cái bên trong cell */
+    display: flex;
+    justify-content: center;
+    
+    /* Style cho chữ */
+    font-size: 120px;
+    font-weight: bold;
+    color: #dfff00; /* Màu vàng neon */
+    text-transform: uppercase;
+
+    /* * Đây là bước quan trọng nhất:
+     * 1. Xoay từng chữ cái quanh trục Y một góc tính bằng biến --i.
+     * 2. Đẩy chữ cái ra xa tâm một khoảng (bán kính của vòng tròn).
+    */
+    transform: rotateY( calc(var(--i) * (360deg / 13)) ) translateZ(200px);
+}
+
+/* --- Định nghĩa animation xoay --- */
+@keyframes spin {
+    from {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    to {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}

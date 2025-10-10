@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    padding: 30px;
+    color: #333;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Giúp padding không làm tăng width */
+    margin-bottom: 20px;
+}
+
+#itemList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+}
+
+#itemList li {
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+/* Bỏ đường viền trên của phần tử đầu tiên */
+#itemList li:first-child {
+    border-top: none;
+}
